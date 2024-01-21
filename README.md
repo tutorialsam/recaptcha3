@@ -1,4 +1,9 @@
 ## Recaptcha
+1. Install composer package
+```bash
+composer require tutorials/recaptcha3
+```
+
 1. Define service provider in `config/app.php`
 ```php
 'providers' => [
