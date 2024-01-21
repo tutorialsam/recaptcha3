@@ -4,7 +4,7 @@
 composer require tutorials/recaptcha3
 ```
 
-1. Define service provider in `config/app.php`
+2. Define service provider in `config/app.php`
 ```php
 'providers' => [
     ...
@@ -12,20 +12,20 @@ composer require tutorials/recaptcha3
 ],
 ```
 
-2. Defined variables in `.env` file and put values from [recaptcha admin panel](https://www.google.com/recaptcha/admin/create)
+3. Define variables in `.env` file and put values from [recaptcha admin panel](https://www.google.com/recaptcha/admin/create)
 ```
 RECAPTCHA_ENABLED=
 RECAPTCHA_SITE_KEY=
 RECAPTCHA_SECRET_KEY=
 ```
 
-3. Put `recaptcha` middleware on route
+4. Put `recaptcha` middleware on route
 ```php
 Route::post('/login', LoginController::class)->middleware('recaptcha');
 Route::post('/register', LoginController::class)->middleware('recaptcha:0.6');
 ```
 
-4. Insert `@recaptcha` blade directive in the layout
+5. Insert `@recaptcha` blade directive in the layout
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +37,7 @@ Route::post('/register', LoginController::class)->middleware('recaptcha:0.6');
 </html>
 ```
 
-5. Wrap your form submit logic with recaptcha validation
+6. Wrap your form submit logic with recaptcha validation
 ```js
 window.recaptcha('action_name_for_recaptcha_statistic').then((token) => {
     // form submition logic
@@ -48,4 +48,4 @@ window.recaptcha('action_name_for_recaptcha_statistic').then((token) => {
 });
 ```
 
-6. Run `php artisan view:clear` to clear the view cache
+7. Run `php artisan view:clear` to clear the view cache
